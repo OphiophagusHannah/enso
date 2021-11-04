@@ -1,53 +1,190 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-		<title>NewGal</title>
-<link rel="stylesheet" type="text/css" href="gal.css">
-	</head>
-	<body>
 
-		<script src="three.min.js"></script>
-		<script src="tween.min.js"></script>
-		<script src="TrackballControls.js"></script>
-		<script src="CSS3DRenderer.js"></script>
-		<script src="jquery-2.2.0.min.js"></script>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<title>Gallery:Ink</title>
+	<link rel="stylesheet" type="text/css" href="gal.css">
+</head>
+
+<body>
+
+	<script src="three.min.js"></script>
+	<script src="tween.min.js"></script>
+	<script src="TrackballControls.js"></script>
+	<script src="CSS3DRenderer.js"></script>
+	<script src="jquery-2.2.0.min.js"></script>
+
+	<div id="container"></div>
+
+	<div class="can">
+		<div class="button-wrapper">
+			<div class="buttonpn" id="prev">prev</div>
+		</div>
+		<div class="preview-wrapper">
+			<img class="s overlay red" src=''>
+		</div>
+		<div class="button-wrapper">
+			<div class="buttonpn" id="next">next</div>
+		</div>
+	</div>
+
+	<div id="menu">
+		<!-- <div class="button" id="new">5</div>
+		<div class="button" id="for">4</div>
+		<div class="button" id="tab">3</div>
+		<div class="button" id="wave">2</div>
+		<div class="button" id="round">1</div> -->
+		<!-- <div class="button" id="sphere">sphere</div>
+		<div class="button" id="grid">grid</div> -->
+	</div>
+
+<div class="info-menu">
+	<div id="c-information-btn" class="information-button">
+		<div id="c-information-btn__wrap">Concept</div>
+	</div>
+
+	<div id="c-information" class="information-content">
+		<div class="information__wrap">
+			<h2 class="information__header">Current Concept</h2>
 		
-<div id="container"></div>
-<div id="can"> 
-<div class="buttonpn" id="p">prev</div>
-<div class="buttonpn" id="n">next</div>
-	<img class="s overlay red" src = ''>
+			<div class="information__summary">
+				<p>Something<br>Something<br>Something</p>
+			</div>
+			<div class="information__about">
+				<h3 class="information__about-header">About</h3>
+				<p>Description of Artistic Component: Busyness of the artwork depends on the number of art piece. with
+					larger ammount of
+					details artwork becomes more realistic. Overall, the idea is to show the composition of reality,
+					complexity of reality
+					and its components, the idea of the grows and accumulation of the information, progress, absence of
+					limits. +
+					Reorganization of form, which underlines dynamics, constant change, flexibility and somewhat
+					delicacy of connections.
+				</p>
+				<p>Structure: Originally the idea was created as a potential prototype for Web Virtual Reality Gallery,
+					which led
+					towards two paths of
+					possible interactions:</br></br><i>1st Path:</i>
+				<ul>
+					<li>Full AR/ VR gallery with gesture control</li>
+				</ul><i>2nd Path:</i>
+				<ul>
+					<li>Experience with the gallery using mobile phone as controller (main goal within this path is
+						accessibility from
+						anywhere).</li>
+				</ul>
+				</p>
+				<p>Interaction:
+				<ul>
+					<li>1. Gallery opens by holding a finger on the screen, which opens interface with details
+						(potentially details can
+						contain type of item sorting or choices of specific galleries.</li>
+					<li>2. When gallery is opened, human is located in the center of the virtual sphere(sketch) </li>
+					<li>3. Gallery can be explored through phone screen.By targeting an item, the user can fixate it on
+						the screen and
+						access further interface.(sketch) </li>
+					<li>4. Interaction options with single image are based on usual actions that people can do with
+						images in regular
+						galleries. (screenshot of image, screenshot of the part of the image, slide to next / previous,
+						view details,
+						add personal notes, zoom in out).</li>
+				</ul>
+				</p>
+				<p>Usage:The interface can be used for physical interactive installations, digital installations, where
+					items can be in any other
+					formats</p>
+				<p>discussion:
+					"This gallery can be understandable and accessible transition between 2dimensional interfaces of the
+					regular gallery and
+					3dimensional access access to graphic images or other objects.",
+					additional:
+					"The interface can be used for physical interactive installations, digital installations, where
+					items can be in any
+					other formats",
+					further:
+					"improve UI to be more intuitive Finish drawing schemes. Add movement between images. Try to use AR
+					tool</p>
 
-</div> 
-		<div id="c-information-btn">
-      <div id="c-information-btn__wrap">info</div>
-    </div>
-    <div id="c-information">
-      <div id="c-information__wrap">
-        <h2 id="c-information__header">Illust</h2>
-        <h3 id="c-information__sub-header">Hannah</h3>
-        <div id="c-information__summary">
-          <p>Something<br>Something<br>Something</p>
-        </div>
-        <div id="c-information__about">
-          <h3 id="c-information__about-header">About</h3> 
-          <p>Loren ipsum should go here "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
-          </p>
-          <a href="readme.txt">README</a>
-        </div>
+			</div>
+		</div>
+	</div>
 
-      </div>
-    </div>
-		<div id="menu">
-		<div class = "button" id="new">5</div>
-		<div class = "button" id="for">4</div>
-			<div class = "button" id="tab">3</div>
-			<div class = "button" id="wave">2</div>
-			<div class = "button" id="round">1</div>
-			<div class = "button" id="grid">0</div>
+	<div id="e-information-btn" class="information-button">
+		<div id="e-information-btn__wrap">Exploration</div>
+	</div>
 
-<script type="text/javascript" src="javas.js"></script>
-	</body>
+	
+	<div id="e-information" class="information-content">
+		<div class="c-information__wrap">
+			<h2 class="information__header">Interactive Exploration</h2>
+		
+			<div class="information__about">
+				<h3 class="information__about-header">About</h3>
+				<p>Description of Artistic Component: Busyness of the artwork depends on the number of art piece. with
+					larger ammount of
+					details artwork becomes more realistic. Overall, the idea is to show the composition of reality,
+					complexity of reality
+					and its components, the idea of the grows and accumulation of the information, progress, absence of
+					limits. +
+					Reorganization of form, which underlines dynamics, constant change, flexibility and somewhat
+					delicacy of connections.
+				</p>
+				<p>Structure: Originally the idea was created as a potential prototype for Web Virtual Reality Gallery,
+					which led
+					towards two paths of
+					possible interactions:</br></br><i>1st Path:</i>
+				<ul>
+					<li>Full AR/ VR gallery with gesture control</li>
+				</ul><i>2nd Path:</i>
+				<ul>
+					<li>Experience with the gallery using mobile phone as controller (main goal within this path is
+						accessibility from
+						anywhere).</li>
+				</ul>
+				</p>
+				<p>Interaction:
+				<ul>
+					<li>1. Gallery opens by holding a finger on the screen, which opens interface with details
+						(potentially details can
+						contain type of item sorting or choices of specific galleries.</li>
+					<li>2. When gallery is opened, human is located in the center of the virtual sphere(sketch) </li>
+					<li>3. Gallery can be explored through phone screen.By targeting an item, the user can fixate it on
+						the screen and
+						access further interface.(sketch) </li>
+					<li>4. Interaction options with single image are based on usual actions that people can do with
+						images in regular
+						galleries. (screenshot of image, screenshot of the part of the image, slide to next / previous,
+						view details,
+						add personal notes, zoom in out).</li>
+				</ul>
+				</p>
+				<p>Usage:The interface can be used for physical interactive installations, digital installations, where
+					items can be in any other
+					formats</p>
+				<p>discussion:
+					"This gallery can be understandable and accessible transition between 2dimensional interfaces of the
+					regular gallery and
+					3dimensional access access to graphic images or other objects.",
+					additional:
+					"The interface can be used for physical interactive installations, digital installations, where
+					items can be in any
+					other formats",
+					further:
+					"improve UI to be more intuitive Finish drawing schemes. Add movement between images. Try to use AR
+					tool</p>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+	<script type="text/javascript" src="javas.js"></script>
+</body>
+
 </html>

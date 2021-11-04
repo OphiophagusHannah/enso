@@ -291,7 +291,11 @@ window.addEventListener('load', function () {
 		return mesh;
 	};
 
-
+	document.getElementById('c-information-btn').addEventListener('click', function (event) {
+		var elem = document.getElementById('c-information');
+		document.getElementById('c-information-btn').classList.toggle('opened');
+		elem.classList.toggle('is-viewed');
+	});
 
 
 	var camera;
@@ -304,7 +308,7 @@ window.addEventListener('load', function () {
 	var controls;
 
 	var objects = [];
-	var targets = { table: [], helix: [], grid: [], forth: [], new: [], sphere: [], initial: [] };
+	var targets = { table: [], helix: [], grid: [], forth: [], new: [], sphere: [], test: [] };
 
 	init();
 	animate();
@@ -409,21 +413,267 @@ window.addEventListener('load', function () {
 			scene.add(object)
 			objects.push(object);
 
-			var vector = new THREE.Vector3();
+		}
+
+
+
+		
+
+		// 5 new
+
+		var vector = new THREE.Vector3();
+		var ra;
+
+		for (var i = 0, l = objects.length; i < l; i++) {
+			var phi = i * 0.175 + Math.PI;
+			var theta = Math.sqrt(l * Math.PI) * phi;
+			var ra;
+			var object = new THREE.Object3D();
+
+			if (i < 5) {
+				ra = 400;
+			}
+			else if (i < 60) {
+				ra = 700;
+			}
+			else if (i < 100) {
+				ra = 1000;
+			}
+			var object = new THREE.Object3D();
+
+			object.position.x = ra * Math.sin(theta) * Math.cos(phi);
+			object.position.y = ra * Math.sin(theta) * Math.sin(phi);
+			object.position.z = ra * Math.cos(phi);
+
+			vector.copy(object.position);
+			vector.x *= 2;
+			vector.z *= 2;
+
+			object.lookAt(vector);
+			targets.new.push(object);
+		}
+
+
+		// 4
+
+		var vector = new THREE.Vector3();
+		var ra;
+
+		for (var i = 0, l = objects.length; i < l; i++) {
+
+			var phi = i * 0.175 + Math.PI;
+			var theta = Math.sqrt(l * Math.PI) * phi;
+			var ra;
+			var object = new THREE.Object3D();
+
+			if (i < 5) {
+				ra = 600;
+			}
+			else if (i < 60) {
+				ra = 800;
+			}
+			else if (i < 150) {
+				ra = 1200;
+			}
+			var object = new THREE.Object3D();
+
+			object.position.x = ra * Math.sin(theta) * Math.cos(phi);
+			object.position.y = ra * Math.cos(theta) * Math.sin(phi);
+			object.position.z = ra * Math.sin(phi);
+
+			vector.copy(object.position);
+			vector.x *= 2;
+			vector.z *= 2;
+
+			object.lookAt(vector);
+
+			targets.forth.push(object);
+		}
+
+		// 3
+
+		var vector = new THREE.Vector3();
+
+		for (var i = 0, l = objects.length; i < l; i++) {
+
+			var object = objects[i];
+
+			var phi = Math.acos(-1 + (2 * i) / l);
+			var theta = Math.sqrt(l * Math.PI) * phi;
+			var r;
+
+			var object = new THREE.Object3D();
+			if (i < 5) {
+				r = 400;
+			}
+			else if (i < 50) {
+				r = 700;
+			}
+			else if (i < 150) {
+				r = 950;
+			}
+			else if (i < 150) {
+				r = 1200;
+			}
+
+			object.position.x = r * Math.sin(theta) * Math.sin(phi);
+			object.position.y = r * Math.cos(theta) * Math.cos(phi);
+			object.position.z = r * Math.cos(phi);
+
+			vector.copy(object.position).multiplyScalar(2);
+
+			object.lookAt(vector);
+
+			targets.table.push(object);
+		}
+
+		// 2
+
+		// var vector = new THREE.Vector3();
+
+		// for (var i = 0, l = objects.length; i < l; i++) {
+
+		// 	var object = objects[i];
+
+		// 	var phi = Math.acos(-1 + (2 * i) / l);
+		// 	var theta = Math.sqrt(l * Math.PI) * phi;
+		// 	var r;
+
+		// 	var object = new THREE.Object3D();
+		// 	if (i < 5) {
+		// 		r = 400;
+		// 	}
+		// 	else if (i < 60) {
+		// 		r = 700;
+		// 	}
+		// 	else if (i < 150) {
+		// 		r = 950;
+		// 	}
+		// 	else if (i < 150) {
+		// 		r = 1200;
+		// 	}
+		// 	object.position.x = r * Math.sin(theta) * Math.sin(phi);
+		// 	object.position.y = r * Math.sin(theta) * Math.cos(phi);
+		// 	object.position.z = r * Math.cos(phi);
+
+		// 	vector.copy(object.position).multiplyScalar(2);
+
+		// 	object.lookAt(vector);
+
+		// 	targets.sphere.push(object);
+
+		// }
+
+		// 1
+
+		var vector = new THREE.Vector3();
+		var ra;
+
+		for (var i = 0, l = objects.length; i < l; i++) {
+
+			var phi = i * 0.175 + Math.PI;
+			var theta = Math.sqrt(l * Math.PI) * phi;
+			var ra;
+
+			var object = new THREE.Object3D();
+			if (i < 5) {
+				ra = 400;
+			}
+			else if (i < 60) {
+				ra = 700;
+			}
+			else if (i < 100) {
+				ra = 1000;
+			}
+			var object = new THREE.Object3D();
+
+			object.position.x = ra * Math.sin(theta) * Math.sin(phi);
+			object.position.y = ra * Math.cos(theta) * Math.sin(phi);
+			object.position.z = ra * Math.cos(phi);
+
+			vector.copy(object.position);
+			vector.x *= 2;
+			vector.z *= 2;
+
+			object.lookAt(vector);
+
+			targets.helix.push(object);
+
+		}
+
+		// 0
+
+		for (var i = 0; i < objects.length; i++) {
+
+			var object = objects[i];
+
+			var object = new THREE.Object3D();
+
+			object.position.x = ((i % 10) * 200) - 800;
+			object.position.y = (- (Math.floor(i / 10) % 10) * 200) + 800;
+			object.position.z = (Math.floor(i / 200)) * 500 - 2000;
+
+			var cam_pos = 900;
+
+			targets.grid.push(object);
+		}
+
+		// sphere
+
+		var vector = new THREE.Vector3();
 		var ra;
 
 		for (var i = 0, l = objects.length; i < l; i++) {
 
 			var phi = Math.acos(-1 + (2 * i) / l);
 			var theta = Math.sqrt(l * Math.PI) * phi;
-			 ra = 700;
+			var ra;
 
 			var object = new THREE.Object3D();
 			
+			ra = 700;
+	
+	
+			var object = new THREE.Object3D();
+
+			object.position.x = ra * Math.sin(theta) * Math.sin(phi);
+			object.position.y = ra * Math.cos(theta) * Math.sin(phi);
+			object.position.z = ra * Math.cos(phi);
+
+			vector.copy(object.position);
+			vector.x *= 2;
+			vector.z *= 2;
+			vector.y *= 2;
+
+			object.lookAt(vector);
+
+			targets.sphere.push(object);
+
+			cam_pos =  10;
+
+		}
+
+
+
+		// test
+
+		var vector = new THREE.Vector3();
+		var ra;
+
+		for (var i = 0, l = objects.length; i < l; i++) {
+
+			var phi = Math.acos(-1 + (2 * i) / l);
+			var theta = Math.sqrt(l * Math.PI) * phi;
+			var ra;
+
+			var object = new THREE.Object3D();
 			
-			object.position.x = ra * Math.cos(theta) * Math.sin(phi);
+			ra = 700;
+	
+			var object = new THREE.Object3D();
+
 			object.position.x = ra * Math.cos(theta) * Math.cos(phi);
-			object.position.y = ra * Math.sin(theta) * Math.sin(phi);
+			object.position.y = ra * Math.sin(theta) * Math.cos(phi);
 			object.position.z = ra * Math.sin(phi);
 
 			vector.copy(object.position);
@@ -433,126 +683,9 @@ window.addEventListener('load', function () {
 
 			object.lookAt(vector);
 
-			targets.initial.push(object);
+			targets.test.push(object);
 
 		}
-
-
-		}
-
-
-		// grid
-
-		
-		var menu = document.getElementById('menu');
-
-
-
-function createButton(title, config) {
-	var name = title;
-	var button = document.createElement('div');
-	button.className = name;
-	button.innerHTML = name;
-	
-	menu.appendChild(button);
-
-	console.log(config.position.y);
-
-	for (var i = 0; i < objects.length; i++) {
-
-		var object = objects[i];
-
-		var object = new THREE.Object3D();
-
-		if(name == 'grid') {
-			object.position.x = ((i % 10) * 200) - 800;
-			object.position.y = (- (Math.floor(i / 10) % 10) * 200) + 800;
-			object.position.z = (Math.floor(i / 200)) * 500 - 2000;
-		}
-
-		if(name == 'sphere') {
-			var vector = new THREE.Vector3();
-			var phi = Math.acos(-1 + (2 * i) / l);
-			var theta = Math.sqrt(l * Math.PI) * phi;
-			var ra;
-
-			
-			ra = 700;
-	
-			object.position.x = ra * Math.cos(theta) * Math.sin(phi);
-			object.position.y = ra * Math.sin(theta) * Math.sin(phi);
-			object.position.z = ra * Math.sin(phi);
-		}
-
-		targets[name].push(object);
-	}
-	
-	button.addEventListener('click', function (event) {
-		transform(targets[name], 2000);
-	}, false);
-}
-
-var grid = new THREE.Object3D();
-var sphere = new THREE.Object3D();
-
-
-createButton('grid', grid);
-createButton('sphere',  sphere);
-
-
-
-
-
-
-		// for (var i = 0; i < objects.length; i++) {
-
-		// 	var object = objects[i];
-
-		// 	var object = new THREE.Object3D();
-
-		// 	object.position.x = ((i % 10) * 200) - 800;
-		// 	object.position.y = (- (Math.floor(i / 10) % 10) * 200) + 800;
-		// 	object.position.z = (Math.floor(i / 200)) * 500 - 2000;
-
-		// 	var cam_pos = 900;
-
-		// 	targets.grid.push(object);
-		// }
-
-
-
-
-		// test
-
-		
-		// for (var i = 0, l = objects.length; i < l; i++) {
-		// 	var vector = new THREE.Vector3();
-		// 	var phi = Math.acos(-1 + (2 * i) / l);
-		// 	var theta = Math.sqrt(l * Math.PI) * phi;
-		// 	var ra;
-
-		// 	var object = new THREE.Object3D();
-			
-		// 	ra = 700;
-	
-		// 	var object = new THREE.Object3D();
-
-		// 	object.position.x = ra * Math.cos(theta) * Math.sin(phi);
-		// 	object.position.y = ra * Math.sin(theta) * Math.sin(phi);
-		// 	object.position.z = ra * Math.sin(phi);
-
-		// 	vector.copy(object.position);
-		// 	vector.x *= 2;
-		// 	vector.z *= 2;
-		// 	vector.y *= 2;
-
-		// 	object.lookAt(vector);
-
-		// 	targets.sphere.push(object);
-
-		// }
-
-
 
 		//
 
@@ -569,8 +702,37 @@ createButton('sphere',  sphere);
 		controls.rotateSpeed = 0.5;
 		controls.addEventListener('change', render);
 
+		var button = document.getElementById('tab');
+		button.addEventListener('click', function (event) {
+			transform(targets.table, 2000);
+		}, false);
 
-		transform(targets.initial, 5000);
+		var button = document.getElementById('new');
+		button.addEventListener('click', function (event) {
+			transform(targets.new, 2000);
+		}, false);
+
+		var button = document.getElementById('for');
+		button.addEventListener('click', function (event) {
+			transform(targets.forth, 2000);
+		}, false);
+
+		var button = document.getElementById('wave');
+		button.addEventListener('click', function (event) {
+			transform(targets.sphere, 2000);
+		}, false);
+
+		var button = document.getElementById('round');
+		button.addEventListener('click', function (event) {
+			transform(targets.helix, 2000);
+		}, false);
+
+		var button = document.getElementById('grid');
+		button.addEventListener('click', function (event) {
+			transform(targets.grid, 2000);
+		}, false);
+
+		transform(targets.test, 5000);
 
 
 		window.addEventListener('resize', onWindowResize, false);
@@ -621,27 +783,5 @@ createButton('sphere',  sphere);
 
 		renderer.render(scene, camera);
 	}
-
-//infomenu
-
-	document.getElementById('c-information-btn').addEventListener('click', function (event) {
-		var elem = document.getElementById('c-information');
-		var secelem = document.getElementById('e-information');
-		document.getElementById('c-information-btn').classList.toggle('opened');
-		elem.classList.toggle('is-viewed');
-
-		document.getElementById('e-information-btn').classList.remove('opened');
-		secelem.classList.remove('is-viewed');
-	});
-
-	document.getElementById('e-information-btn').addEventListener('click', function (event) {
-		var elem = document.getElementById('e-information');
-		var secelem = document.getElementById('c-information');
-		document.getElementById('e-information-btn').classList.toggle('opened');
-		elem.classList.toggle('is-viewed');
-
-		document.getElementById('c-information-btn').classList.remove('opened');
-		secelem.classList.remove('is-viewed');
-	});
 
 })
