@@ -1,8 +1,15 @@
 #menu {
   position: absolute;
-  bottom: 20px;
-  width: 100%;
-  margin-left: 40vw;
+  top: 2rem;
+  width: 20%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#menu > div {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  text-transform: uppercase;
+  padding: 1rem;
 }
 
 .element {
@@ -15,8 +22,36 @@
   width: 120px;
   height: auto;
   width: 100%;
+  border-radius: 50%;
   font-size: 70px;
   text-align: center;
+  -webkit-transition: .4s linear;
+  transition: .4s linear;
+}
+
+.element .symbol {
+  width: 120px;
+  height: auto;
+  width: 100%;
+  border-radius: 50%;
+  font-size: 70px;
+  text-align: center;
+  -webkit-transition: .4s linear;
+  transition: .4s linear;
+}
+
+.element:hover {
+  z-index: 1000000;
+}
+
+.element:hover .symbol {
+  border-radius: 0;
+  border-radius: 2px;
+  -webkit-transform: scale(2, 2);
+          transform: scale(2, 2);
+  position: relative;
+  -webkit-transition: .4s linear;
+  transition: .4s linear;
 }
 
 img.s {
@@ -35,14 +70,6 @@ img.s {
   background-color: rgba(255, 49, 12, 0.95);
 }
 
-.element .symbol:hover {
-  -webkit-filter: drop-shadow(0px 0px 100px rgba(206, 225, 255, 0.95));
-  -moz-filter: drop-shadow(0px 0px 100px rgba(206, 225, 255, 0.95));
-  -o-filter: drop-shadow(0px 0px 100px rgba(206, 225, 255, 0.95));
-  -ms-filter: drop-shadow(0px 0px 100px rgba(206, 225, 255, 0.95));
-  filter: drop-shadow(0px 0px 100px rgba(206, 225, 255, 0.95));
-}
-
 .element .displaylarge {
   z-index: 1;
   position: absolute;
@@ -51,11 +78,13 @@ img.s {
   width: 700px;
   height: 1000px;
   color: rgba(88, 255, 38, 0.75);
-  -webkit-filter: drop-shadow(0px 0px 100px rgba(206, 225, 255, 0.95));
-  -moz-filter: drop-shadow(0px 0px 100px rgba(206, 225, 255, 0.95));
-  -o-filter: drop-shadow(0px 0px 100px rgba(206, 225, 255, 0.95));
-  -ms-filter: drop-shadow(0px 0px 100px rgba(206, 225, 255, 0.95));
-  filter: drop-shadow(0px 0px 100px rgba(206, 225, 255, 0.95));
+  -webkit-filter: drop-shadow(0px 0px 10px rgba(206, 225, 255, 0.95));
+  -moz-filter: drop-shadow(0px 0px 10px rgba(206, 225, 255, 0.95));
+  -o-filter: drop-shadow(0px 0px 10px rgba(206, 225, 255, 0.95));
+  -ms-filter: drop-shadow(0px 0px 10px rgba(206, 225, 255, 0.95));
+  filter: drop-shadow(0px 0px 10px rgba(206, 225, 255, 0.95));
+  -webkit-transition: .4s linear;
+  transition: .4s linear;
 }
 
 .buttonpn {
@@ -128,30 +157,22 @@ a:hover {
   text-decoration: none;
 }
 
-.information-button {
-  cursor: pointer;
-  width: 30px;
-  height: 30px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  display: block;
-  line-height: 30px;
+#about {
   position: absolute;
-  top: 70px;
-  right: 3em;
-  font-size: 20px;
-  font-weight: 600;
-  z-index: 5;
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
+  bottom: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
-#c-information-btn {
-  top: 30px;
-}
-
-#e-information-btn {
-  top: 70px;
+#about .information-button {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  text-transform: uppercase;
+  padding: 1rem;
 }
 
 #c-information-btn.opened {
@@ -190,93 +211,27 @@ a:hover {
   opacity: 1;
 }
 
+#c-information.is-viewed .information__wrap {
+  padding: 4rem;
+  padding-right: 20rem;
+}
+
+#c-information.is-viewed .information__wrap div, #c-information.is-viewed .information__wrap p, #c-information.is-viewed .information__wrap ul, #c-information.is-viewed .information__wrap li, #c-information.is-viewed .information__wrap ol, #c-information.is-viewed .information__wrap a, #c-information.is-viewed .information__wrap h1, #c-information.is-viewed .information__wrap h2, #c-information.is-viewed .information__wrap h3, #c-information.is-viewed .information__wrap h4, #c-information.is-viewed .information__wrap h5, #c-information.is-viewed .information__wrap h6 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 #e-information.is-viewed {
   visibility: visible;
   opacity: 1;
 }
 
-.information__header {
-  line-height: 1.1;
-  margin: 0 0 10px;
-  padding-left: 10px;
-  font-size: 42px;
-  text-align: center;
-  letter-spacing: 10px;
+#e-information.is-viewed .information__wrap {
+  padding: 4rem;
+  padding-right: 20rem;
 }
 
-.information__sub-header {
-  line-height: 1.1;
-  margin: 0 0 30px;
-  padding-left: 5px;
-  text-align: center;
-  font-size: 24px;
-  font-weight: 100;
-  letter-spacing: 5px;
-}
-
-.information__summary {
-  text-align: center;
-  font-family: Courier New;
-}
-
-.information__about {
-  text-align: center;
-  font-family: Courier New;
-  letter-spacing: 2px;
-}
-
-.information__about hr {
-  width: 100px;
-  height: 1px;
-  display: block;
-  margin: 30px auto;
-  border: 0;
-  background-color: #fff;
-}
-
-.information__about-header {
-  margin-top: 60px;
-  font-size: 24px;
-}
-
-.information__share {
-  margin: 100px 0 0;
-  text-align: center;
-}
-
-.information__share-item {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-.information__share-item a {
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-  display: block;
-  line-height: 50px;
-  position: relative;
-  color: #fff;
-  text-align: center;
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-
-.information__share-item a:before {
-  width: 50px;
-  height: 50px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  border: 2px solid rgba(255, 255, 255, 0.8);
-  border-radius: 25px;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
+#e-information.is-viewed .information__wrap div, #e-information.is-viewed .information__wrap p, #e-information.is-viewed .information__wrap ul, #e-information.is-viewed .information__wrap li, #e-information.is-viewed .information__wrap ol, #e-information.is-viewed .information__wrap a, #e-information.is-viewed .information__wrap h1, #e-information.is-viewed .information__wrap h2, #e-information.is-viewed .information__wrap h3, #e-information.is-viewed .information__wrap h4, #e-information.is-viewed .information__wrap h5, #e-information.is-viewed .information__wrap h6 {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .can {
