@@ -3,7 +3,6 @@ window.addEventListener('load', function () {
     var sphere = null;
 
     var table = [
-        "./img/works/000.jpg",
         "./img/works/001.jpg",
         "./img/works/002.jpg",
         "./img/works/003.jpg",
@@ -135,7 +134,12 @@ window.addEventListener('load', function () {
             var item = table[i];
 
             var element = document.createElement('div');
-            element.className = 'element';
+            element.className = 'element colored';
+
+            var number = document.createElement('div');
+            number.className = 'number';
+            number.textContent = i + 1;
+            element.appendChild(number);
 
             var sym = document.createElement('img');
             var src = document.createAttribute('src');
@@ -481,6 +485,12 @@ window.addEventListener('load', function () {
 
         document.getElementById('c-information-btn').classList.remove('opened');
         secelem.classList.remove('is-viewed');
+    });
+
+
+    $('.reveal-hide-button').on('click', function () {
+        $('.flip-button').toggleClass('flipped');
+        $('.element').toggleClass('colored');
     });
 
 })

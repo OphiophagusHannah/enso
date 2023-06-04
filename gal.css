@@ -33,36 +33,72 @@
 }
 
 .element {
-  width: 140px;
-  height: 180px;
+  width: 120px;
+  height: 120px;
   cursor: default;
 }
 .element .symbol {
   width: 120px;
+  height: 120px;
   height: auto;
   width: 100%;
   border-radius: 50%;
   font-size: 70px;
   text-align: center;
-  transition: 0.4s linear;
 }
 
+.element {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  box-shadow: -1px 0px 63px -17px rgb(217, 255, 48);
+  transition: 0.4s linear;
+}
 .element .symbol {
   width: 120px;
+  height: 120px;
   height: auto;
   width: 100%;
   border-radius: 50%;
   font-size: 70px;
   text-align: center;
-  transition: 0.4s linear;
+}
+.element .number {
+  display: none;
+}
+.element.colored {
+  background: rgba(165, 255, 38, 0.5);
+  border: 2px solid rgb(165, 255, 38);
+  box-shadow: inset -1px 0px 63px -17px rgb(165, 255, 38);
+}
+.element.colored .symbol {
+  width: 0;
+  height: 0;
+}
+.element.colored .number {
+  display: initial;
 }
 .element:hover {
   z-index: 1000000;
+  transition: 0.4s linear;
+}
+.element:hover .number {
+  display: none;
 }
 .element:hover .symbol {
-  transform: scale(2, 2);
+  width: 120px;
+  height: 120px;
   position: relative;
   transition: 0.4s linear;
+}
+.element:hover.colored {
+  background: rgba(165, 255, 38, 0);
+  border: 2px solid rgba(165, 255, 38, 0);
+  box-shadow: -1px 0px 63px -17px rgb(217, 255, 48);
+  transition-delay: 0.4s;
+  transition-property: box-shadow;
+  transition: box-shadow 0.4s linear;
 }
 
 img.s {
@@ -134,7 +170,7 @@ body {
 html {
   height: 100%;
   color: #fff;
-  background-color: rgb(87, 87, 87);
+  background-color: rgb(32, 32, 32);
 }
 
 body {
@@ -259,7 +295,6 @@ a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.7);
   z-index: 2000;
 }
 
@@ -272,4 +307,94 @@ a:hover {
 .preview-wrapper img {
   height: 100%;
   width: auto;
+}
+
+.number {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: rgb(165, 255, 38);
+  font-size: 32px;
+}
+
+.reveal-hide-button {
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+  width: 50px;
+  height: 50px;
+  position: relative;
+  -ms-perspective: 800px;
+  perspective: 800px;
+  border-radius: 50px;
+}
+
+.flip-button {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 50px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+.flip-button div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 50px;
+  text-transform: uppercase;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -o-box-pack: center;
+  justify-content: center;
+  -o-box-align: center;
+  align-items: center;
+  font: 16px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+  transition: 0.3s linear;
+}
+.flip-button div.front {
+  color: white;
+  border: 2px solid white;
+}
+.flip-button div.front:hover {
+  color: rgb(217, 255, 48);
+  border: 2px solid rgb(217, 255, 48);
+  transition: 0.3s linear;
+}
+.flip-button div.back {
+  color: black;
+  background: rgb(217, 255, 48);
+  border: 2px solid rgb(217, 255, 48);
+}
+.flip-button div.back:hover {
+  background: white;
+  border: 2px solid white;
+  transition: 0.3s linear;
+}
+
+.flip-button .back {
+  transform: rotateY(180deg);
+  transition: 0.3s linear;
+}
+
+.flip-button.flipped {
+  transform: rotateY(180deg);
+  transition: 0.3s linear;
+}
+
+/* ===== Relevant styles ===== */
+svg[height="0"] {
+  position: fixed;
+}
+
+#container {
+  /* also works with an actual image,
+   * not just with a CSS gradient *
+  url(https://images.unsplash.com/photo-1633596683562-4a47eb4983c5?w=1400)
+  	50%/ cover/**/
+  filter: url(#grainy);
 }/*# sourceMappingURL=gal.css.map */

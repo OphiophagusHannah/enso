@@ -12,6 +12,19 @@
         <script src="TrackballControls.js"></script>
         <script src="CSS3DRenderer.js"></script>
         <script src="jquery-2.2.0.min.js"></script>
+        <!-- <svg width="0" height="0">
+            <filter
+                id="grainy"
+                x="0"
+                y="0"
+                width="100%"
+                height="100%"
+            >
+                <feTurbulence type="fractalNoise" baseFrequency=".537"></feTurbulence>
+                <feColorMatrix type="saturate" values="0"></feColorMatrix>
+                <feBlend mode="multiply" in="SourceGraphic"></feBlend>
+            </filter>
+        </svg> -->
         <div id="container"></div>
         <div class="can">
             <div class="button-wrapper">
@@ -26,12 +39,19 @@
         </div>
         <div id="menu"></div>
         <div id="about">
+            <div id="reveal-hide-btn" class="reveal-hide-button">
+                <div class="flip-button">
+                    <div class="front">Show</div>
+                    <div class="back">Hide</div>
+                </div>
+            </div>
             <!-- <div id="c-information-btn" class="information-button">
                 <div id="c-information-btn__wrap">Art</div>
             </div>
             <div id="e-information-btn" class="information-button">
                 <div id="e-information-btn__wrap">Dev</div>
-            </div> --></div>
+            </div> -->
+        </div>
         <div class="info-menu">
             <div id="c-information-btn" class="information-button">
                 <div id="c-information-btn__wrap">Art</div>
