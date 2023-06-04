@@ -21,6 +21,18 @@
   z-index: 1;
   transition: 0.3s linear;
 }
+#menu > div.active {
+  color: rgb(217, 255, 48);
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: 0.3s linear;
+  cursor-events: none;
+}
+#menu > div.active:before {
+  width: 2rem;
+  border-top: solid 1px rgb(217, 255, 48);
+  transition: 0.3s linear;
+}
 #menu > div:hover {
   color: rgb(165, 255, 38);
   letter-spacing: 2px;
@@ -29,6 +41,7 @@
 }
 #menu > div:hover:before {
   width: 2rem;
+  border-top: solid 1px rgb(165, 255, 38);
   transition: 0.3s linear;
 }
 

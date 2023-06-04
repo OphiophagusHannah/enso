@@ -233,21 +233,38 @@ window.addEventListener('load', function () {
 
         for (var i = 0, l = objects.length; i < l; i++) {
 
-            var phi = Math.acos(-1 + (2 * i) / l);
-            var theta = Math.sqrt(l * Math.PI) * phi;
+            // var phi = Math.acos(-1 + (2 * i) / l);
+            // var theta = Math.sqrt(l * Math.PI) * phi;
+            // var ra = 500;
+            // var object = new THREE.Object3D();
+
+            // object.position.x = ra * Math.sin(theta) * Math.sin(phi);
+            // object.position.y = ra * Math.cos(theta) * Math.sin(phi);
+            // object.position.z = ra * Math.cos(phi);
+
+            // vector.copy(object.position);
+            // vector.x *= 2;
+            // vector.z *= 2;
+            // vector.y *= 2;
+
+            // object.lookAt(vector);
+
             var ra = 500;
+            var phi = Math.acos(-1 + (2 * i) / l);
+
             var object = new THREE.Object3D();
 
-            object.position.x = ra * Math.sin(theta) * Math.sin(phi);
-            object.position.y = ra * Math.cos(theta) * Math.sin(phi);
+            object.position.x = ((i % 10) * 150) - 600;
+            object.position.y = (- (Math.floor(i / 10) % 10) * 150) + 700;
             object.position.z = ra * Math.cos(phi);
 
-            vector.copy(object.position);
-            vector.x *= 2;
-            vector.z *= 2;
-            vector.y *= 2;
 
-            object.lookAt(vector);
+            // vector.copy(object.position);
+            // vector.x *= 2;
+            // vector.z *= 2;
+            // vector.y *= 2;
+
+            // object.lookAt(vector);
 
             targets.initial.push(object);
         }
@@ -257,7 +274,7 @@ window.addEventListener('load', function () {
         function createButton(title, config) {
             var name = title;
             var button = document.createElement('div');
-            button.className = name;
+            button.className = "menu-item " + name;
             button.innerHTML = name;
 
             menu.appendChild(button);
@@ -283,9 +300,10 @@ window.addEventListener('load', function () {
                 }
 
                 if (name == 'sphere') {
+                    var ra = 500;
                     var phi = Math.acos(-1 + (2 * i) / l);
                     var theta = Math.sqrt(l * Math.PI) * phi;
-                    var ra = 500;
+
                     var object = new THREE.Object3D();
 
                     object.position.x = ra * Math.sin(theta) * Math.sin(phi);
@@ -492,5 +510,18 @@ window.addEventListener('load', function () {
         $('.flip-button').toggleClass('flipped');
         $('.element').toggleClass('colored');
     });
+
+    $('#menu .order').addClass('active');
+
+    var el = document.querySelectorAll('#menu .menu-item');
+    for (let i = 0; i < el.length; i++) {
+        el[i].onclick = function () {
+            var c = 0;
+            while (c < el.length) {
+                el[c++].className = 'menu-item';
+            }
+            el[i].className = 'menu-item active';
+        };
+    }
 
 })
