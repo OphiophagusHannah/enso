@@ -483,28 +483,6 @@ window.addEventListener('load', function () {
         renderer.render(scene, camera);
     }
 
-    //infomenu
-
-    document.getElementById('c-information-btn').addEventListener('click', function (event) {
-        var elem = document.getElementById('c-information');
-        var secelem = document.getElementById('e-information');
-        document.getElementById('c-information-btn').classList.toggle('opened');
-        elem.classList.toggle('is-viewed');
-
-        document.getElementById('e-information-btn').classList.remove('opened');
-        secelem.classList.remove('is-viewed');
-    });
-
-    document.getElementById('e-information-btn').addEventListener('click', function (event) {
-        var elem = document.getElementById('e-information');
-        var secelem = document.getElementById('c-information');
-        document.getElementById('e-information-btn').classList.toggle('opened');
-        elem.classList.toggle('is-viewed');
-
-        document.getElementById('c-information-btn').classList.remove('opened');
-        secelem.classList.remove('is-viewed');
-    });
-
 
     $('.reveal-hide-button').on('click', function () {
         $('.flip-button').toggleClass('flipped');
