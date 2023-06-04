@@ -1,15 +1,35 @@
 #menu {
   position: absolute;
   top: 2rem;
+  left: 1rem;
   width: 20%;
   font-family: Arial, Helvetica, sans-serif;
 }
-
 #menu > div {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   text-transform: uppercase;
   padding: 1rem;
+  transition: 0.3s linear;
+}
+#menu > div:before {
+  content: "";
+  display: block;
+  border-top: solid 1px rgb(165, 255, 38);
+  width: 0;
+  height: 1px;
+  z-index: 1;
+  transition: 0.3s linear;
+}
+#menu > div:hover {
+  color: rgb(165, 255, 38);
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: 0.3s linear;
+}
+#menu > div:hover:before {
+  width: 2rem;
+  transition: 0.3s linear;
 }
 
 .element {
@@ -17,7 +37,6 @@
   height: 180px;
   cursor: default;
 }
-
 .element .symbol {
   width: 120px;
   height: auto;
@@ -25,8 +44,7 @@
   border-radius: 50%;
   font-size: 70px;
   text-align: center;
-  -webkit-transition: .4s linear;
-  transition: .4s linear;
+  transition: 0.4s linear;
 }
 
 .element .symbol {
@@ -36,34 +54,25 @@
   border-radius: 50%;
   font-size: 70px;
   text-align: center;
-  -webkit-transition: .4s linear;
-  transition: .4s linear;
+  transition: 0.4s linear;
 }
-
 .element:hover {
   z-index: 1000000;
 }
-
 .element:hover .symbol {
-  border-radius: 0;
-  border-radius: 2px;
-  -webkit-transform: scale(2, 2);
-          transform: scale(2, 2);
+  transform: scale(2, 2);
   position: relative;
-  -webkit-transition: .4s linear;
-  transition: .4s linear;
+  transition: 0.4s linear;
 }
 
 img.s {
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  box-sizing: inherit;
   width: auto;
   z-index: 2000;
   font-size: 70px;
   text-align: center;
   border: none;
   font-weight: bold;
-  -webkit-transition: all 0.5s ease-in;
   transition: all 0.5s ease-in;
   visibility: hidden;
   overflow-y: scroll;
@@ -78,13 +87,11 @@ img.s {
   width: 700px;
   height: 1000px;
   color: rgba(88, 255, 38, 0.75);
-  -webkit-filter: drop-shadow(0px 0px 10px rgba(206, 225, 255, 0.95));
   -moz-filter: drop-shadow(0px 0px 10px rgba(206, 225, 255, 0.95));
   -o-filter: drop-shadow(0px 0px 10px rgba(206, 225, 255, 0.95));
   -ms-filter: drop-shadow(0px 0px 10px rgba(206, 225, 255, 0.95));
   filter: drop-shadow(0px 0px 10px rgba(206, 225, 255, 0.95));
-  -webkit-transition: .4s linear;
-  transition: .4s linear;
+  transition: 0.4s linear;
 }
 
 .buttonpn {
@@ -108,10 +115,9 @@ img.s {
 .buttonpn:hover {
   width: 35px;
   height: 45px;
-  background-color: #ff310c;
+  background-color: rgb(255, 49, 12);
   border-radius: 35px;
   color: #000;
-  -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
@@ -128,7 +134,7 @@ body {
 html {
   height: 100%;
   color: #fff;
-  background-color: #575757;
+  background-color: rgb(87, 87, 87);
 }
 
 body {
@@ -149,7 +155,6 @@ canvas {
 
 a {
   color: #afc27d;
-  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
@@ -160,14 +165,9 @@ a:hover {
 #about {
   position: absolute;
   bottom: 1rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  justify-content: flex-start;
 }
-
 #about .information-button {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 10px;
@@ -177,13 +177,11 @@ a:hover {
 
 #c-information-btn.opened {
   right: 51vw;
-  -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
 
 #e-information-btn.opened {
   right: 51vw;
-  -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
 
@@ -200,9 +198,8 @@ a:hover {
   left: 0;
   z-index: 2;
   overflow-y: scroll;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
   letter-spacing: 2px;
-  -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
@@ -210,13 +207,22 @@ a:hover {
   visibility: visible;
   opacity: 1;
 }
-
 #c-information.is-viewed .information__wrap {
   padding: 4rem;
   padding-right: 20rem;
 }
-
-#c-information.is-viewed .information__wrap div, #c-information.is-viewed .information__wrap p, #c-information.is-viewed .information__wrap ul, #c-information.is-viewed .information__wrap li, #c-information.is-viewed .information__wrap ol, #c-information.is-viewed .information__wrap a, #c-information.is-viewed .information__wrap h1, #c-information.is-viewed .information__wrap h2, #c-information.is-viewed .information__wrap h3, #c-information.is-viewed .information__wrap h4, #c-information.is-viewed .information__wrap h5, #c-information.is-viewed .information__wrap h6 {
+#c-information.is-viewed .information__wrap div,
+#c-information.is-viewed .information__wrap p,
+#c-information.is-viewed .information__wrap ul,
+#c-information.is-viewed .information__wrap li,
+#c-information.is-viewed .information__wrap ol,
+#c-information.is-viewed .information__wrap a,
+#c-information.is-viewed .information__wrap h1,
+#c-information.is-viewed .information__wrap h2,
+#c-information.is-viewed .information__wrap h3,
+#c-information.is-viewed .information__wrap h4,
+#c-information.is-viewed .information__wrap h5,
+#c-information.is-viewed .information__wrap h6 {
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -224,13 +230,22 @@ a:hover {
   visibility: visible;
   opacity: 1;
 }
-
 #e-information.is-viewed .information__wrap {
   padding: 4rem;
   padding-right: 20rem;
 }
-
-#e-information.is-viewed .information__wrap div, #e-information.is-viewed .information__wrap p, #e-information.is-viewed .information__wrap ul, #e-information.is-viewed .information__wrap li, #e-information.is-viewed .information__wrap ol, #e-information.is-viewed .information__wrap a, #e-information.is-viewed .information__wrap h1, #e-information.is-viewed .information__wrap h2, #e-information.is-viewed .information__wrap h3, #e-information.is-viewed .information__wrap h4, #e-information.is-viewed .information__wrap h5, #e-information.is-viewed .information__wrap h6 {
+#e-information.is-viewed .information__wrap div,
+#e-information.is-viewed .information__wrap p,
+#e-information.is-viewed .information__wrap ul,
+#e-information.is-viewed .information__wrap li,
+#e-information.is-viewed .information__wrap ol,
+#e-information.is-viewed .information__wrap a,
+#e-information.is-viewed .information__wrap h1,
+#e-information.is-viewed .information__wrap h2,
+#e-information.is-viewed .information__wrap h3,
+#e-information.is-viewed .information__wrap h4,
+#e-information.is-viewed .information__wrap h5,
+#e-information.is-viewed .information__wrap h6 {
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -241,15 +256,9 @@ a:hover {
   visibility: hidden;
   top: 0;
   left: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 2000;
 }
@@ -257,16 +266,10 @@ a:hover {
 .preview-wrapper {
   width: 50%;
   height: 90vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
-
 .preview-wrapper img {
   height: 100%;
   width: auto;
-}
-/*# sourceMappingURL=gal.css.map */
+}/*# sourceMappingURL=gal.css.map */
