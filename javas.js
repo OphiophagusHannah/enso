@@ -134,7 +134,7 @@ window.addEventListener('load', function () {
             var item = table[i];
 
             var element = document.createElement('div');
-            element.className = 'element colored';
+            element.className = 'element';
 
             var number = document.createElement('div');
             number.className = 'number';
@@ -142,10 +142,26 @@ window.addEventListener('load', function () {
             element.appendChild(number);
 
             var sym = document.createElement('img');
-            var src = document.createAttribute('src');
             sym.className = 'symbol';
-            src.value = table[i];
-            var a;
+            sym.setAttribute('src', table[i]);
+
+
+            var flip_wrapper = document.createElement('div');
+            flip_wrapper.className = 'flip-card-inner';
+
+            var front = document.createElement('div');
+            front.className = 'front';
+
+            var back = document.createElement('div');
+            back.className = 'back';
+
+
+            element.appendChild(flip_wrapper);
+            flip_wrapper.appendChild(front);
+            front.appendChild(number);
+            flip_wrapper.appendChild(back);
+            back.appendChild(sym);
+
 
             // sym.addEventListener('click', function () {
             //     var can = document.querySelector(".can");
@@ -214,8 +230,7 @@ window.addEventListener('load', function () {
             //     }
             // });
 
-            element.appendChild(sym);
-            sym.setAttributeNode(src);
+
 
             // >>>>>>>>>>>>>>>>>>>>>>>>use indexOf to get array place. list through images
             var object = new THREE.CSS3DObject(element);
@@ -486,8 +501,14 @@ window.addEventListener('load', function () {
 
     $('.reveal-hide-button').on('click', function () {
         $('.flip-button').toggleClass('flipped');
-        $('.element').toggleClass('colored');
+        $('.element').toggleClass('flipped');
     });
+
+
+    $('.element').on('click', function () {
+        $(this).toggleClass('flipped');
+    });
+
 
     $('#menu .order').addClass('active');
 
@@ -500,6 +521,42 @@ window.addEventListener('load', function () {
             }
             el[i].className = 'menu-item active';
         };
+    }
+
+
+
+    function zoomCam(event) {
+
+        var point_mouse = new THREE.Vector2(),
+        var point_x = null;
+        var point_y = null;
+        if (event.changedTouches) {
+
+            point_x = event.changedTouches[0].pageX;
+            point_y = event.changedTouches[0].pageY;
+        } else {
+
+            point_x = event.clientX;
+            point_y = event.clientY;
+        }
+
+        point_mouse.x = (point_x / window.innerWidth) * 2 - 1;
+        point_mouse.y = -(point_y / window.innerHeight) * 2 + 1;
+
+        if (sceneObjects.length > 0) {
+
+            var raycaster = new THREE.Raycaster();
+            raycaster.setFromCamera(point_mouse, camera);
+            var intersects = raycaster.intersectObjects(sceneObjects, true);
+            if (intersects.length > 0) {
+                var p = intersects[0].point;
+                var n = intersects[0].face.normal.clone();
+                n.multiplyScalar(10);
+                n.add(intersects[0].point);
+                camera.position.copy(n);
+                camera.lookAt(p);
+            }
+        }
     }
 
 })
