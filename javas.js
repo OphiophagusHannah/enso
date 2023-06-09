@@ -523,40 +523,4 @@ window.addEventListener('load', function () {
         };
     }
 
-
-
-    function zoomCam(event) {
-
-        var point_mouse = new THREE.Vector2(),
-        var point_x = null;
-        var point_y = null;
-        if (event.changedTouches) {
-
-            point_x = event.changedTouches[0].pageX;
-            point_y = event.changedTouches[0].pageY;
-        } else {
-
-            point_x = event.clientX;
-            point_y = event.clientY;
-        }
-
-        point_mouse.x = (point_x / window.innerWidth) * 2 - 1;
-        point_mouse.y = -(point_y / window.innerHeight) * 2 + 1;
-
-        if (sceneObjects.length > 0) {
-
-            var raycaster = new THREE.Raycaster();
-            raycaster.setFromCamera(point_mouse, camera);
-            var intersects = raycaster.intersectObjects(sceneObjects, true);
-            if (intersects.length > 0) {
-                var p = intersects[0].point;
-                var n = intersects[0].face.normal.clone();
-                n.multiplyScalar(10);
-                n.add(intersects[0].point);
-                camera.position.copy(n);
-                camera.lookAt(p);
-            }
-        }
-    }
-
 })
